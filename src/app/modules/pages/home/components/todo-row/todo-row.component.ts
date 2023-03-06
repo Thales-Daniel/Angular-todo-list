@@ -13,4 +13,12 @@ export class TodoRowComponent {
   @Output() deleteTodoEmit = new EventEmitter();
 
   @Input() todoObj: TodoList = { todo: this.todo, isComplete: this.isComplete };
+
+  deleteTodo() {
+    this.deleteTodoEmit.emit(this.todoId);
+  }
+
+  show() {
+    console.log(this.todoObj);
+  }
 }

@@ -2,11 +2,9 @@ import {
   Component,
   OnInit,
   OnDestroy,
-  Input,
   Output,
   EventEmitter,
 } from "@angular/core";
-import { TodoList } from "../../model/todo-list";
 
 @Component({
   selector: "app-todo-input",

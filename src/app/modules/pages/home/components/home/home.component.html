@@ -7,11 +7,13 @@
     (emitTodo)="emitTodo($event)"
   ></app-todo-input>
 
-  <ul class="flex flex-col gap-6">
+  <ul class="w-full flex flex-col gap-6 items-center justify-center">
     <app-todo-row
+      class="max-w-full"
       *ngFor="let item of todoList; let id = index"
       [todoId]="id"
       [todoObj]="item"
+      (deleteTodoEmit)="deleteTodo($event)"
     ></app-todo-row>
   </ul>
 </div>

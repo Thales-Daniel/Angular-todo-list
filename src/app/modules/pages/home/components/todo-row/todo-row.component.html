@@ -1,17 +1,18 @@
 <div
-  class="text-ligh-pink bg-background-black rounded-3xl px-3 py-2 text-lg flex gap-2 items-center"
+  class="w-f text-ligh-pink bg-background-black rounded-3xl px-3 py-2 text-lg flex gap-2 items-center justify-around"
 >
   <input
     type="checkbox"
-    class="text-center outline-none bg-background-black"
+    class="outline-none mx-3 w-5 h-5"
     [(ngModel)]="todoObj.isComplete"
   />
-  <input
-    type="text"
+  <p
     class="text-center outline-none bg-background-black"
-    [(ngModel)]="todoObj.todo"
-  />
-  <button class="ml-4" type="button">
+    [ngClass]="{ 'line-through': todoObj.isComplete }"
+  >
+    {{ todoObj.todo }}
+  </p>
+  <button class="ml-4" type="button" (click)="deleteTodo()">
     <img
       src="../../../../../../assets/icons8-delete-trash-50.png"
       class="w-8 h-8 rounded-full p-1 bg-white hover:shadow-md hover:shadow-white hover:bg-gray-100"

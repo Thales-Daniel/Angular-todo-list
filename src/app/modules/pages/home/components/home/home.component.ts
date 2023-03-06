@@ -15,7 +15,7 @@ export class HomeComponent {
     this.todoList.push(todoObj);
   }
 
-  deleteTodo() {
-    this.todoList.splice(this.todoId, 1);
+  deleteTodo(id: number) {
+    this.todoList.splice(id, 1);
   }
 }
