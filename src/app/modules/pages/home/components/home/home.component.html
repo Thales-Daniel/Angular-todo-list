@@ -4,6 +4,14 @@
   <h1 class="text-ligh-pink text-[125px] sm:text-7xl">Just do It.</h1>
   <app-todo-input
     class="w-full flex flex-col items-center gap-5"
+    (emitTodo)="emitTodo($event)"
   ></app-todo-input>
-  <app-todo-row></app-todo-row>
+
+  <ul class="flex flex-col gap-6">
+    <app-todo-row
+      *ngFor="let item of todoList; let id = index"
+      [todoId]="id"
+      [todoObj]="item"
+    ></app-todo-row>
+  </ul>
 </div>

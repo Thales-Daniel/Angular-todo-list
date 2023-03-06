@@ -5,8 +5,14 @@
     name="todo-input"
     id="todo-input"
     placeholder="Add Task"
+    [(ngModel)]="todo"
+    (keyup.enter)="addTodo()"
   />
-  <button type="button" class="h-10 rounded-r-xl bg-ligh-pink px-3">
+  <button
+    type="button"
+    class="h-10 rounded-r-xl bg-ligh-pink px-3"
+    (click)="addTodo()"
+  >
     I Got This!
   </button>
 </label>
