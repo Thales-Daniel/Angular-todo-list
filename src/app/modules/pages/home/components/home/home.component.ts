@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, DoCheck } from "@angular/core";
 import { TodoList } from "../../model/todo-list";
 
 @Component({
@@ -6,9 +6,15 @@ import { TodoList } from "../../model/todo-list";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
 })
-export class HomeComponent {
+export class HomeComponent implements DoCheck {
   todoList: Array<TodoList> = [];
   todoId = Number();
+
+  ngDoCheck() {
+    this.todoList.sort(
+      (first, last) => Number(first.isComplete) - Number(last.isComplete)
+    );
+  }
 
   emitTodo(event: string) {
     const todoObj = { todo: event, isComplete: false };
