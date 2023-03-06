@@ -7,13 +7,16 @@ import { TodoList } from "../../model/todo-list";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements DoCheck {
-  todoList: Array<TodoList> = [];
+  todoList: Array<TodoList> = JSON.parse(localStorage.getItem("list") || "[]");
   todoId = Number();
 
   ngDoCheck() {
-    this.todoList.sort(
-      (first, last) => Number(first.isComplete) - Number(last.isComplete)
-    );
+    if (this.todoList) {
+      this.todoList.sort(
+        (first, last) => Number(first.isComplete) - Number(last.isComplete)
+      );
+      localStorage.setItem("list", JSON.stringify(this.todoList));
+    }
   }
 
   emitTodo(event: string) {
